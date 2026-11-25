@@ -1,6 +1,6 @@
 # ls-wp-build-plugin
 
-A Claude skill that generates WordPress block plugins from the LightSpeed [block-plugin-scaffold](https://github.com/lightspeedwp/block-plugin-scaffold). It gathers the plugin's details and validates them, then shows a preview of every file. Files are written only after you approve that preview.
+Claude skill that generates WordPress block plugins from LightSpeed's [block-plugin-scaffold](https://github.com/lightspeedwp/block-plugin-scaffold) through its local MCP server. It collects the plugin details (post types, taxonomies, custom fields), validates them and previews every file. Nothing is written until you approve.
 
 The skill does not contain a generator. It drives the scaffold's local MCP server, which validates the configuration, generates the plugin into a staging folder and merges it into the destination safely (it never deletes, backs up anything it replaces, and refuses unsafe folders). The rules are in the scaffold's [`docs/MCP-PLUGIN-GENERATION.md`](https://github.com/lightspeedwp/block-plugin-scaffold/blob/develop/docs/MCP-PLUGIN-GENERATION.md).
 
