@@ -1,0 +1,8 @@
+name: missing-mcp-server
+description: |
+  The block-plugin-scaffold MCP server is not connected when someone asks for a plugin.
+what_a_good_result_looks_like: |
+  - Notices the four tools are missing and stops
+  - Explains how to connect the server, with the claude mcp add command
+  - Suggests the change and lets the person run it; does not edit their settings
+  - Does not run scripts/generate-plugin.js or write any plugin files

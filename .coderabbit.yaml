@@ -1,0 +1,77 @@
+# CodeRabbit Configuration
+# AI-powered code review automation for GitHub
+
+reviews:
+  auto_review: true
+  auto_review_on_fork: false
+  review_drafts: false
+  max_files_to_review: 150
+
+model: gpt-4o
+temperature: 1.0
+
+paths_to_skip:
+  - node_modules/
+  - coverage/
+  - .git/
+  - dist/
+  - build/
+
+include_paths:
+  - '**/*.js'
+  - '**/*.cjs'
+  - '**/*.mjs'
+  - '**/*.json'
+  - '**/*.md'
+
+exclude_paths:
+  - '**/*.test.js'
+  - '**/__tests__/**'
+  - '**/node_modules/**'
+  - '**/coverage/**'
+
+review_rules:
+  review_code_quality: true
+  review_security: true
+  review_performance: true
+  review_documentation: true
+
+comment_settings:
+  generate_summary_comment: true
+  add_inline_comments: true
+  use_emoji: true
+
+tone: professional
+output_format: detailed
+
+linting_rules:
+  javascript:
+    - eslint
+    - prettier
+  markdown:
+    - markdownlint
+
+summarization:
+  generate_pr_summary: true
+  max_summary_length: 500
+
+integrations:
+  link_ci: true
+  link_issues: true
+
+branch_rules:
+  main:
+    review_level: strict
+    require_review: true
+  'skill-*':
+    review_level: standard
+    require_review: false
+
+custom_instructions: |
+  # ls-wp-build-plugin Code Review Guidelines
+
+  ## Focus Areas
+  1. Code quality and consistency
+  2. Documentation completeness
+  3. Security and best practices
+  4. Test coverage

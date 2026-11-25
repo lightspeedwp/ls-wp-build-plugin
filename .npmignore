@@ -1,0 +1,77 @@
+# Development files
+.git
+.gitignore
+.github
+.vscode
+.DS_Store
+
+# Environment & Secrets (always ignore — security-critical)
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.npmrc
+*.pem
+*.key
+*.secret
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Testing
+
+# Coverage
+coverage/
+.nyc_output
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build artifacts
+dist/
+build/
+*.tgz
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Source control
+.git/
+.gitignore
+
+# Configuration
+.eslintrc*
+eslint.config.*
+.prettierrc*
+.editorconfig
+tsconfig.json
+babel.config.js
+jest.config.js
+lefthook.yml
+.yamllint.yml
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Scripts
+scripts/
+bin/
+Makefile
+
+# Scratch files
+.remember/
+.jest-skip/
+.schemas/
