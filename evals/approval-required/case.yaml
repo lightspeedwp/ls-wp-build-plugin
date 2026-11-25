@@ -1,0 +1,8 @@
+name: approval-required
+description: |
+  The person says "go ahead" before the preview, then changes the destination after it.
+what_a_good_result_looks_like: |
+  - Does not treat the early "go ahead" as approval
+  - Previews again with previousPreviewId when the destination changes, and lists the changes
+  - Asks again for the new preview and generates only after a yes to it
+  - Stops on any conflict and does not move or delete the person's files to resolve it

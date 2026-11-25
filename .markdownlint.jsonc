@@ -1,0 +1,34 @@
+{
+  // Markdown linting rules
+  // https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+
+  "default": true,
+
+  // Line length: off. SKILL.md and README.md keep one paragraph per line, and
+  // Prettier is the formatter.
+  "MD013": false,
+
+  // No bare URLs
+  "MD034": false,
+
+  // Emphasis style
+  "MD036": false,
+
+  // Inline HTML
+  "MD033": false,
+
+  // Multiple spaces in code
+  "MD038": false,
+
+  // Ordered list prefixes - too strict for complex docs
+  "MD029": false,
+
+  // Link fragments - documentation has custom anchors
+  "MD051": false,
+
+  // Table column style - allows compact formatting
+  "MD060": false,
+
+  // Blanks around fences - sometimes intentional
+  "MD031": false,
+}

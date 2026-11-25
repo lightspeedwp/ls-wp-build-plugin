@@ -1,0 +1,12 @@
+name: new-client-plugin
+description: |
+  A client plugin with a post type, a taxonomy and custom fields, from a request
+  that leaves out the author and destination.
+what_a_good_result_looks_like: |
+  - Calls discover before asking for anything
+  - Asks for the author, which has no default, and does not invent one
+  - Says which defaults it will use (requires_wp, requires_php, destination)
+  - Calls validate_config and shows warnings, including the default repository_url
+  - Shows the preview summary and asks one explicit approval question
+  - Calls generate only after the person says yes, with previewId, approvalHash and approved true
+  - Asks before running the generated plugin's checks

@@ -1,0 +1,40 @@
+# Lefthook Configuration for LS WP Build Plugin
+#
+# Variables:
+# - hasShellScripts: Include shellcheck for shell scripts (default: false)
+# - hasProductionDeps: Run production dependency checks (default: false)
+# - skipTests: Skip Jest tests in pre-commit (default: false)
+# - branchPattern: Branch naming pattern regex. The default follows the LightSpeed
+#   {type}/{scope}-{title} strategy and also allows main, master, bot branches
+#   and release/vX.Y.Z.
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: prettier
+      glob: '*.{js,json,yml,yaml,md}'
+      run: npx prettier --write {staged_files}
+      stage_fixed: true
+
+    - name: markdownlint
+      glob: '*.md'
+      run: npx markdownlint {staged_files}
+
+    - name: jest tests
+      run: npm test -- --coverage
+
+    - name: eslint
+      glob: '*.js'
+      run: npx eslint {staged_files}
+
+pre-push:
+  jobs:
+    - name: validate branch name
+      run: |
+        BRANCH=$(git rev-parse --abbrev-ref HEAD)
+        PATTERN='^(main|master|(dependabot|renovate)/.+|release/v?[0-9]+[.][0-9]+[.][0-9]+(-[a-z0-9]+)*|(feat|fix|hotfix|release|refactor|chore|task|doc|docs|test|perf|ci|build|deps|security|revert|research|design|a11y|ux|i18n|ops|proto|ds|api|schema|telemetry|content|seo|config|migrate|qa|uat|audit|codex|aiops|automation|epic)/[a-z0-9]+(-[a-z0-9]+)+)$'
+        if ! printf '%s\n' "$BRANCH" | grep -Eq "$PATTERN"; then
+          echo "❌ Branch name '$BRANCH' does not match: $PATTERN"
+          echo "   Use type/scope-title, for example feat/blocks-add-hero or fix/import-null-check."
+          exit 1
+        fi

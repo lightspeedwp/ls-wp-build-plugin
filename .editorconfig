@@ -1,0 +1,42 @@
+# EditorConfig helps maintain consistent coding styles across projects
+# https://editorconfig.org
+# See .editorconfig docs for cross-IDE support (VSCode, Sublime, Vim, etc.)
+
+root = true
+
+# All files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# JavaScript, JSON
+[*.{js,cjs,mjs,json}]
+indent_style = space
+indent_size = 2
+
+# Bash/Shell
+[*.{sh,bash}]
+indent_style = space
+indent_size = 2
+
+# YAML
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# Markdown (preserve whitespace in code blocks)
+[*.md]
+trim_trailing_whitespace = false
+indent_style = space
+indent_size = 2
+
+# Makefiles (use tabs, required)
+[Makefile]
+indent_style = tab
+
+# npm
+[package.json]
+indent_style = space
+indent_size = 2
